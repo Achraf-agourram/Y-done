@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('dishTitle');
             $table->string('dishPhoto');
-            $table->float('price');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
+
+            $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
         });
     }
 

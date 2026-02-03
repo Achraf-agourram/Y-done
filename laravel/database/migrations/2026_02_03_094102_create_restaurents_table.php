@@ -20,6 +20,8 @@ return new class extends Migration
             $table->time('closingTime');
             $table->boolean('isActive');
             $table->timestamps();
+
+            $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete();
         });
     }
 

@@ -9,4 +9,9 @@ class Photo extends Model
     protected $fillable = [
         'photoContent',
     ];
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurent::class);
+    }
 }

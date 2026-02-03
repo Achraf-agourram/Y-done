@@ -24,4 +24,9 @@ class Restaurent extends Model
     {
         return $this->belongsToMany(User::class, 'favorites');
     }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
 }

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('restaurents', function (Blueprint $table) {
             $table->id();
+            $table->string('restaurentName');
+            $table->string('location');
+            $table->integer('capacity');
+            $table->time('openingTime');
+            $table->time('closingTime');
+            $table->boolean('isActive');
             $table->timestamps();
         });
     }

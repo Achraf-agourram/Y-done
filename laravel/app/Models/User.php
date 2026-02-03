@@ -27,6 +27,16 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function restaurants()
+    {
+        return $this->hasMany(Restaurent::class, 'owner_id');
+    }
+
+    public function favoriteRestaurants()
+    {
+        return $this->belongsToMany(Restaurent::class, 'favorites');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -14,4 +14,14 @@ class Restaurent extends Model
         'closingTime',
         'isActive',
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function favoritedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'favorites');
+    }
 }

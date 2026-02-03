@@ -11,4 +11,9 @@ class Dish extends Model
         'dishPhoto',
         'price'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

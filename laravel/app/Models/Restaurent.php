@@ -29,4 +29,9 @@ class Restaurent extends Model
     {
         return $this->hasMany(Photo::class);
     }
+
+    public function menu()
+    {
+        return $this->hasOne(Menu::class);
+    }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('photoContent');
             $table->timestamps();
 
-            $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('restaurent_id')->constrained()->cascadeOnDelete();
         });
     }
 

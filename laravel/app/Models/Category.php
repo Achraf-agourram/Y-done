@@ -9,4 +9,9 @@ class Category extends Model
     protected $fillable = [
         'categoryTitle'
     ];
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
 }

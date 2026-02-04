@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="min-h-screen flex flex-col items-center justify-center py-12 px-4 bg-gradient-to-br from-[#fdfaf6] to-[#ffedd5]">
         
-        <div class="mb-8 text-center">
+        <div class="mb-4 text-center">
             <div class="inline-block p-3 bg-white rounded-full shadow-sm mb-4">
                 <span class="text-4xl">🧑‍🍳</span>
             </div>
@@ -42,6 +42,18 @@
                                style="background-color: white !important; color: #111827 !important;"
                                class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                         <x-input-error :messages="$errors->get('email')" class="mt-1" />
+                    </div>
+
+                    <div class="mb-4">
+                        <x-input-label for="role" :value="__('Join as...')" class="text-amber-950 font-bold ml-1" />
+                        <select id="role" name="role" required
+                                style="background-color: white !important; color: #111827 !important;"
+                                class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3 appearance-none">
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="client">Client (I want to eat! 😋)</option>
+                            <option value="owner">Owner (I want to cook! 👨‍🍳)</option>
+                        </select>
+                        <x-input-error :messages="$errors->get('role')" class="mt-1" />
                     </div>
 
                     <div class="p-5 bg-gradient-to-r from-orange-50 to-amber-50 rounded-3xl border-2 border-dashed border-orange-200 group hover:border-orange-400 transition-colors">

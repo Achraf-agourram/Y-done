@@ -8,7 +8,7 @@ use App\Models\Restaurent;
 use App\Models\User;
 use App\Models\Photo;
 
-class RestaurantSeeder extends Seeder
+class RestaurentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class RestaurantSeeder extends Seeder
 
         foreach ($owners as $owner) {
             Restaurent::factory()
-                ->count()
+                ->count(1)
                 ->has(Photo::factory()->count(rand(2, 6)))
                 ->create([
                     'owner_id' => $owner->id,

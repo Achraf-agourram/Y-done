@@ -17,7 +17,7 @@ class PhotoFactory extends Factory
     public function definition(): array
     {
         return [
-            'path' => $this->faker->imageUrl(800, 600, 'food'),
+            'photoContent' => $this->faker->imageUrl(800, 600, 'food'),
         ];
     }
 }

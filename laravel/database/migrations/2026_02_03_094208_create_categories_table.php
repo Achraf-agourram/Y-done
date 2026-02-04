@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('categoryTitle');
             $table->timestamps();
+
+            $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
         });
     }
 

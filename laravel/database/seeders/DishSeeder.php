@@ -20,6 +20,7 @@ class DishSeeder extends Seeder
             Dish::factory()
                 ->count(rand(3, 8))
                 ->create([
+                    'menu_id' => $category->menu_id,
                     'category_id' => $category->id,
                 ]);
         }

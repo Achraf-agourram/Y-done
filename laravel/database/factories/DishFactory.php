@@ -17,7 +17,10 @@ class DishFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'dishTitle' => $this->faker->words(2, true),
+            'price' => $this->faker->randomFloat(2, 5, 50),
+            'dishPhoto' => $this->faker->imageUrl(100, 100, 'food'),
+            'category_id' => null,
         ];
     }
 }

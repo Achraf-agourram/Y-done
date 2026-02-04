@@ -17,7 +17,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'categoryTitle' => $this->faker->word,
+            'menu_id' => null,
         ];
     }
 }

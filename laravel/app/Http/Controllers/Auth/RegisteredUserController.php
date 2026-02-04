@@ -35,6 +35,7 @@ class RegisteredUserController extends Controller
             'sname' => ['required', 'string', 'max:255'],
             'photo' => 'required|image|mimes:jpeg,png,jpg|max:4096',
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'role' => ['required', 'string', 'in:client,owner'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -47,6 +48,8 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ]);
+        
+        $user->assignRole($request->role);
 
         event(new Registered($user));
 

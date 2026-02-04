@@ -2,8 +2,8 @@
     <div class="min-h-screen py-12 px-4 bg-gradient-to-br from-[#fdfaf6] to-[#ffedd5]">
         
         <div class="max-w-4xl mx-auto mb-8 text-center">
-            <h2 class="text-4xl font-black text-orange-600 tracking-tight">Chef's Profile 🔪</h2>
-            <p class="text-amber-900 mt-2 font-medium italic">Manage your kitchen credentials and personal taste.</p>
+            <h2 class="text-4xl font-black text-orange-600 tracking-tight">Your Profile 🔪</h2>
+            <p class="text-amber-900 mt-2 font-medium italic">Manage your personal credentials.</p>
         </div>
 
         <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -11,14 +11,14 @@
             <div class="md:col-span-1">
                 <div class="bg-white/80 backdrop-blur-sm border border-white shadow-xl rounded-[2.5rem] p-8 text-center">
                     <div class="relative inline-block">
-                        <img src="{{ auth()->user()->photo ? asset('storage/' . auth()->user()->photo) : asset('images/default-avatar.png') }}" 
+                        <img src="{{ asset('storage/' . auth()->user()->photo) }}" 
                              class="w-32 h-32 rounded-full object-cover border-4 border-orange-500 shadow-md mx-auto"
                              alt="Profile Photo">
                         <div class="absolute bottom-0 right-0 bg-orange-600 text-white p-2 rounded-full shadow-lg">
                             <span class="text-xs">⭐</span>
                         </div>
                     </div>
-                    <h3 class="mt-4 text-xl font-bold text-amber-950">{{ auth()->user()->fname }} {{ auth()->user()->sname }}</h3>
+                    <h3 class="mt-4 text-xl font-bold text-amber-950">{{ auth()->user()->firstName }} {{ auth()->user()->familyName }}</h3>
                     <p class="text-sm text-orange-600 font-semibold uppercase tracking-wider">{{ auth()->user()->role }}</p>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <x-input-label for="fname" :value="__('First Name')" class="text-amber-950 font-bold ml-1" />
-                                <input id="fname" name="fname" type="text" value="{{ old('fname', auth()->user()->fname) }}" required
+                                <input id="fname" name="fname" type="text" value="{{ old('fname', auth()->user()->firstName) }}" required
                                        style="background-color: white !important; color: #111827 !important;"
                                        class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                                 <x-input-error class="mt-2" :messages="$errors->get('fname')" />
@@ -40,7 +40,7 @@
 
                             <div>
                                 <x-input-label for="sname" :value="__('Family Name')" class="text-amber-950 font-bold ml-1" />
-                                <input id="sname" name="sname" type="text" value="{{ old('sname', auth()->user()->sname) }}" required
+                                <input id="sname" name="sname" type="text" value="{{ old('sname', auth()->user()->familyName) }}" required
                                        style="background-color: white !important; color: #111827 !important;"
                                        class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                                 <x-input-error class="mt-2" :messages="$errors->get('sname')" />

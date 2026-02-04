@@ -17,7 +17,13 @@ class RestaurentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'restaurentName' => $this->faker->company,
+            'location' => $this->faker->address,
+            'capacity' => $this->faker->numberBetween(1, 6),
+            'openingTime' => $this->faker->time('H:i'),
+            'closingTime' => $this->faker->time('H:i'),
+            'isActive' => true,
+            'owner_id' => null,
         ];
     }
 }

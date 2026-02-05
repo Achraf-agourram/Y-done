@@ -23,14 +23,13 @@
         <div id="toast-container" class="fixed top-5 right-5 z-[100] flex flex-col gap-3 w-full max-w-[320px]">
 
             @if (session('success'))
-                <div class="toast-item flex items-center p-4 bg-black text-white rounded-xl shadow-2xl animate-in-right">
+                <div class="toast-item flex items-center p-4 bg-orange-600 text-white rounded-xl shadow-2xl animate-in-right">
                     <div
-                        class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-green-500 rounded-full text-[10px]">
+                        class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-white rounded-full text-[10px]">
                         <i class="fa-solid fa-check text-white"></i>
                     </div>
                     <div class="ml-3">
                         <p class="text-[11px] font-bold uppercase tracking-widest">{{ session('success') }}</p>
-                        <p class="text-[9px] text-gray-400">Votre contenu est en ligne.</p>
                     </div>
                     <button onclick="this.parentElement.remove()" class="ml-auto text-gray-500 hover:text-white">
                         <i class="fa-solid fa-xmark text-xs"></i>

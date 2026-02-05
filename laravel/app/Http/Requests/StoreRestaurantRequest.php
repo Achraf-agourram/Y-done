@@ -22,14 +22,14 @@ class StoreRestaurantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'],
+            'restaurentName' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'capacity' => ['required', 'integer', 'min:1'],
             'opening_time' => ['required', 'date_format:H:i'],
             'closing_time' => ['required', 'date_format:H:i', 'after:opening_time'],
 
             'photos' => ['nullable', 'array', 'max:5'],
-            'photos.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
+            'photos.*' => ['image', 'mimes:jpg,jpeg,png', 'max:4096'],
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRestaurantRequest;
+use App\Models\Restaurent;
 use Illuminate\Http\Request;
 
 class RestaurentController extends Controller
@@ -21,10 +23,20 @@ class RestaurentController extends Controller
         return view('restauForm');
     }
 
-    public function addRestaurant (Request $request)
+    public function addRestaurant (StoreRestaurantRequest $request)
     {
-        
+        $restaurant = new Restaurent();
 
-        return redirect('/my-restaurants');
+        $restaurant->fill($request->safe()->only([
+            'restaurentName',
+            'location',
+            'capacity',
+            'opening_time',
+            'closing_time',
+        ]));
+
+        $restaurant->save();
+
+        return redirect('/my-restaurants')->with('success', 'Your Restaurant was added succesfully !');
     }
 }

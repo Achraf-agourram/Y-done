@@ -17,7 +17,7 @@
                         
                         <div>
                             <x-input-label for="name" :value="__('Restaurant Name')" class="text-amber-950 font-bold ml-1" />
-                            <input id="name" name="title" type="text" placeholder="e.g. The Sizzling Skillet" required
+                            <input id="name" name="restaurentName" type="text" placeholder="e.g. The Sizzling Skillet" required
                                    style="background-color: white !important; color: #111827 !important;"
                                    class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                         </div>

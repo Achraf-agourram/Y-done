@@ -31,16 +31,16 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <x-input-label for="fname" :value="__('First Name')" class="text-amber-950 font-bold ml-1" />
-                                <input id="fname" name="fname" type="text" value="{{ old('fname', auth()->user()->firstName) }}" required
+                                <x-input-label for="firstName" :value="__('First Name')" class="text-amber-950 font-bold ml-1" />
+                                <input id="fname" name="firstName" type="text" value="{{ auth()->user()->firstName }}" required
                                        style="background-color: white !important; color: #111827 !important;"
                                        class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                                 <x-input-error class="mt-2" :messages="$errors->get('fname')" />
                             </div>
 
                             <div>
-                                <x-input-label for="sname" :value="__('Family Name')" class="text-amber-950 font-bold ml-1" />
-                                <input id="sname" name="sname" type="text" value="{{ old('sname', auth()->user()->familyName) }}" required
+                                <x-input-label for="familyName" :value="__('Family Name')" class="text-amber-950 font-bold ml-1" />
+                                <input id="sname" name="familyName" type="text" value="{{ auth()->user()->familyName }}" required
                                        style="background-color: white !important; color: #111827 !important;"
                                        class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                                 <x-input-error class="mt-2" :messages="$errors->get('sname')" />

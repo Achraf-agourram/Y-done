@@ -10,4 +10,9 @@ class RestaurentController extends Controller
     {
         return view('home');
     }
+
+    public function myRestaurants ()
+    {
+        return view('myrestaurants');
+    }
 }

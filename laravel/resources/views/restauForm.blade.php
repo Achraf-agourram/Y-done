@@ -40,14 +40,14 @@
 
                         <div class="md:col-span-1">
                             <x-input-label for="opening_time" :value="__('Opening Time')" class="text-amber-950 font-bold ml-1" />
-                            <input id="opening_time" name="opening_time" type="time" required
+                            <input id="opening_time" name="openingTime" type="time" required
                                    style="background-color: white !important; color: #111827 !important;"
                                    class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                         </div>
 
                         <div class="md:col-span-1">
                             <x-input-label for="closing_time" :value="__('Closing Time')" class="text-amber-950 font-bold ml-1" />
-                            <input id="closing_time" name="closing_time" type="time" required
+                            <input id="closing_time" name="closingTime" type="time" required
                                    style="background-color: white !important; color: #111827 !important;"
                                    class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                         </div>

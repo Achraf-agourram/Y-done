@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Models\Restaurent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurentController extends Controller
 {
@@ -31,11 +32,23 @@ class RestaurentController extends Controller
             'restaurentName',
             'location',
             'capacity',
-            'opening_time',
-            'closing_time',
+            'openingTime',
+            'closingTime',
         ]));
-
+        
+        $restaurant->isActive = true;
+        $restaurant->owner_id = Auth::id();
         $restaurant->save();
+
+        if ($request->hasFile('photos')) {
+            foreach ($request->file('photos') as $photo) {
+                $path = $photo->store('restaurants', 'public');
+
+                $restaurant->photos()->create([
+                    'path' => $path,
+                ]);
+            }
+        }
 
         return redirect('/my-restaurants')->with('success', 'Your Restaurant was added succesfully !');
     }

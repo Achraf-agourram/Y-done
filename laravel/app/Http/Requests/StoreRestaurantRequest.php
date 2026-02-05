@@ -25,8 +25,8 @@ class StoreRestaurantRequest extends FormRequest
             'restaurentName' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'capacity' => ['required', 'integer', 'min:1'],
-            'opening_time' => ['required', 'date_format:H:i'],
-            'closing_time' => ['required', 'date_format:H:i', 'after:opening_time'],
+            'openingTime' => ['required', 'date_format:H:i'],
+            'closingTime' => ['required', 'date_format:H:i', 'after:opening_time'],
 
             'photos' => ['nullable', 'array', 'max:5'],
             'photos.*' => ['image', 'mimes:jpg,jpeg,png', 'max:4096'],

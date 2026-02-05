@@ -23,7 +23,7 @@
                 <div class="flex justify-between h-20">
                     
                     <div class="flex items-center">
-                        <a href="{{ route('dashboard') }}" class="flex items-center space-x-2 group">
+                        <a href="/" class="flex items-center space-x-2 group">
                             <span class="text-3xl transition-transform group-hover:rotate-12">🍳</span>
                             <span class="text-2xl font-black text-orange-600 tracking-tighter">Y-done</span>
                         </a>

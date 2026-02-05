@@ -29,7 +29,7 @@ class StoreRestaurantRequest extends FormRequest
             'closingTime' => ['required', 'date_format:H:i', 'after:opening_time'],
 
             'photos' => ['nullable', 'array', 'max:5'],
-            'photos.*' => ['image', 'mimes:jpg,jpeg,png', 'max:4096'],
+            'photos.*' => ['image', 'mimes:jpg,jpeg,png,webp,heic', 'max:4096'],
         ];
     }
 }

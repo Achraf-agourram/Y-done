@@ -38,14 +38,15 @@ class RestaurentController extends Controller
         
         $restaurant->isActive = true;
         $restaurant->owner_id = Auth::id();
+        
         $restaurant->save();
 
         if ($request->hasFile('photos')) {
             foreach ($request->file('photos') as $photo) {
-                $path = $photo->store('restaurants', 'public');
+                $path = $photo->store('images', 'public');
 
                 $restaurant->photos()->create([
-                    'path' => $path,
+                    'photoContent' => $path,
                 ]);
             }
         }

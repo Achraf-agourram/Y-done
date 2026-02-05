@@ -17,7 +17,7 @@
                         
                         <div>
                             <x-input-label for="name" :value="__('Restaurant Name')" class="text-amber-950 font-bold ml-1" />
-                            <input id="name" name="name" type="text" placeholder="e.g. The Sizzling Skillet" required
+                            <input id="name" name="title" type="text" placeholder="e.g. The Sizzling Skillet" required
                                    style="background-color: white !important; color: #111827 !important;"
                                    class="block mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                         </div>
@@ -61,7 +61,7 @@
                                 <span class="text-3xl block mb-2">📸</span>
                                 <span class="text-orange-800 font-black block mb-1">Upload Restaurant Photos</span>
                                 <span class="text-xs text-orange-600/70 block mb-4">Show off your storefront or signature dishes (Max 5 photos)</span>
-                                <input type="file" name="photos[]" id="photos" multiple
+                                <input type="file" name="photos[]" multiple
                                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-6 file:rounded-full file:border-0 file:text-sm file:font-bold file:bg-orange-600 file:text-white hover:file:bg-orange-700 cursor:pointer" />
                             </label>
                         </div>

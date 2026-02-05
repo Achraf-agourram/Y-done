@@ -21,8 +21,10 @@ class RestaurentController extends Controller
         return view('restauForm');
     }
 
-    public function addRestaurant ()
+    public function addRestaurant (Request $request)
     {
-        return "hello";
+        
+
+        return redirect('/my-restaurants');
     }
 }

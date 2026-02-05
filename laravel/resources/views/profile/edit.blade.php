@@ -14,9 +14,6 @@
                         <img src="{{ asset('storage/' . auth()->user()->photo) }}" 
                              class="w-32 h-32 rounded-full object-cover border-4 border-orange-500 shadow-md mx-auto"
                              alt="Profile Photo">
-                        <div class="absolute bottom-0 right-0 bg-orange-600 text-white p-2 rounded-full shadow-lg">
-                            <span class="text-xs">⭐</span>
-                        </div>
                     </div>
                     <h3 class="mt-4 text-xl font-bold text-amber-950">{{ auth()->user()->firstName }} {{ auth()->user()->familyName }}</h3>
                     <p class="text-sm text-orange-600 font-semibold uppercase tracking-wider">{{ auth()->user()->role }}</p>

@@ -29,6 +29,12 @@ class ProfileController extends Controller
         $user = $request->user();
 
         $user->fill($request->safe()->except('photo'));
+
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('images', 'public');
+            $user->photo = $path;
+        }
+
         $user->save();
 
         return Redirect('/profile')->with('success', 'profile edited succesfully');

@@ -7,7 +7,7 @@
         </div>
 
         <div class="max-w-3xl mx-auto bg-white/80 backdrop-blur-sm border border-white shadow-2xl rounded-[2.5rem] p-8 md:p-12">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="/my-restaurants/new" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="space-y-8">

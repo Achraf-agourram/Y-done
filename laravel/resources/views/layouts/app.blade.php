@@ -18,7 +18,7 @@
 
     <body class="font-sans antialiased bg-[#fdfaf6] text-gray-900">
 
-        <nav class="bg-white/90 backdrop-blur-md border-b border-orange-100 sticky top-0 z-50 shadow-sm">
+        <nav class="bg-white/90 backdrop-blur-md border-b border-orange-100 sticky top-0 z-50 shadow-sm" x-data="{ open: false }">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     
@@ -29,8 +29,10 @@
                         </a>
                     </div>
 
-                    <div class="flex items-center">
-                        <div class="flex items-center space-x-4 p-1 pr-4 bg-orange-50 rounded-full border border-orange-100 hover:bg-orange-100 transition-colors cursor-pointer group">
+                    <div class="flex items-center relative">
+                        
+                        <button @click="open = !open" @click.outside="open = false" 
+                                class="flex items-center space-x-4 p-1 pr-4 bg-orange-50 rounded-full border border-orange-100 hover:bg-orange-100 transition-colors cursor-pointer group focus:outline-none">
                             
                             <div class="hidden sm:block text-right ml-4">
                                 <p class="text-sm font-bold text-amber-950 leading-none">
@@ -51,13 +53,40 @@
                                         {{ substr(auth()->user()->firstName, 0, 1) }}
                                     </div>
                                 @endif
-                                
                                 <span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-white"></span>
                             </div>
 
-                            <svg class="w-4 h-4 text-amber-900 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-amber-900 transition-transform" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
+                        </button>
+
+                        <div x-show="open" 
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="transform opacity-0 scale-95"
+                            x-transition:enter-end="transform opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-75"
+                            x-transition:leave-start="transform opacity-100 scale-100"
+                            x-transition:leave-end="transform opacity-0 scale-95"
+                            class="absolute right-0 top-full mt-2 w-56 bg-white border border-orange-100 rounded-[1.5rem] shadow-2xl py-2 z-50 overflow-hidden"
+                            style="display: none;">
+                            
+                            <a href="/profile" class="flex items-center px-4 py-3 text-sm font-bold text-amber-950 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <span class="mr-3 text-lg">👤</span> {{ __('Profile Settings') }}
+                            </a>
+
+                            @if(auth()->user()->hasRole('owner'))
+                                <a href="/my-restaurants" class="flex items-center px-4 py-3 text-sm font-bold text-amber-950 hover:bg-orange-50 hover:text-orange-600 transition-colors border-t border-orange-50">
+                                    <span class="mr-3 text-lg">🏠</span> {{ __('My Restaurants') }}
+                                </a>
+                            @endif
+
+                            <form method="POST" action="{{ route('logout') }}" class="border-t border-orange-50">
+                                @csrf
+                                <button type="submit" class="w-full flex items-center px-4 py-3 text-sm font-bold text-red-600 hover:bg-red-50 transition-colors">
+                                    <span class="mr-3 text-lg">🚪</span> {{ __('Sign Out') }}
+                                </button>
+                            </form>
                         </div>
                     </div>
 

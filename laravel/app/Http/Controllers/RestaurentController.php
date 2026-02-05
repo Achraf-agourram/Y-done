@@ -8,6 +8,6 @@ class RestaurentController extends Controller
 {
     public function home ()
     {
-        return view('home.blade.php');
+        return view('home');
     }
 }

@@ -15,4 +15,9 @@ class RestaurentController extends Controller
     {
         return view('myrestaurants');
     }
+
+    public function addRestaurant ()
+    {
+        return view('restauForm');
+    }
 }

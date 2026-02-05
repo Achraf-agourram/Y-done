@@ -8,7 +8,7 @@
                     <p class="text-orange-600 font-medium italic mt-1">Manage your culinary empire and menus.</p>
                 </div>
                 
-                <a href="/restaurants/create" 
+                <a href="/my-restaurants/new" 
                    class="inline-flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-2xl shadow-lg shadow-orange-200 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
                     <span class="text-xl mr-2">+</span> Add New Restaurant
                 </a>

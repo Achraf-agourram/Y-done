@@ -15,7 +15,56 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+
     <body class="font-sans antialiased bg-[#fdfaf6] text-gray-900">
+
+        <nav class="bg-white/90 backdrop-blur-md border-b border-orange-100 sticky top-0 z-50 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    
+                    <div class="flex items-center">
+                        <a href="{{ route('dashboard') }}" class="flex items-center space-x-2 group">
+                            <span class="text-3xl transition-transform group-hover:rotate-12">🍳</span>
+                            <span class="text-2xl font-black text-orange-600 tracking-tighter">Y-done</span>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="flex items-center space-x-4 p-1 pr-4 bg-orange-50 rounded-full border border-orange-100 hover:bg-orange-100 transition-colors cursor-pointer group">
+                            
+                            <div class="hidden sm:block text-right ml-4">
+                                <p class="text-sm font-bold text-amber-950 leading-none">
+                                    {{ auth()->user()->firstName }} {{ auth()->user()->familyName }}
+                                </p>
+                                <p class="text-[10px] font-bold text-orange-500 uppercase tracking-widest mt-1">
+                                    {{ auth()->user()->role }}
+                                </p>
+                            </div>
+
+                            <div class="relative">
+                                @if(auth()->user()->photo)
+                                    <img class="h-10 w-10 rounded-full object-cover border-2 border-white shadow-sm" 
+                                        src="{{ asset('storage/' . auth()->user()->photo) }}" 
+                                        alt="Profile">
+                                @else
+                                    <div class="h-10 w-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold border-2 border-white shadow-sm">
+                                        {{ substr(auth()->user()->firstName, 0, 1) }}
+                                    </div>
+                                @endif
+                                
+                                <span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-white"></span>
+                            </div>
+
+                            <svg class="w-4 h-4 text-amber-900 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
         <main>
             {{ $slot }}
         </main>

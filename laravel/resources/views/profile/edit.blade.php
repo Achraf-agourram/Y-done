@@ -49,7 +49,7 @@
 
                         <div>
                             <x-input-label for="email" :value="__('Email Address')" class="text-amber-950 font-bold ml-1" />
-                            <input id="email" name="email" type="email" value="{{ old('email', auth()->user()->email) }}" required disabled
+                            <input name="mail" type="email" value="{{ auth()->user()->email }}" disabled
                                    style="background-color: white !important; color: #111827 !important;"
                                    class="block cursor-not-allowed mt-1 w-full border-orange-100 focus:border-orange-500 focus:ring-orange-500 rounded-2xl shadow-sm px-4 py-3" />
                             <x-input-error class="mt-2" :messages="$errors->get('email')" />

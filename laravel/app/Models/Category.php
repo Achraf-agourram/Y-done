@@ -10,7 +10,8 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'categoryTitle'
+        'categoryTitle',
+        'menu_id'
     ];
 
     public function menu()

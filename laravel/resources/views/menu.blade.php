@@ -21,7 +21,7 @@
                         <button class="text-orange-600 font-bold text-sm hover:underline">+ Add New</button>
                     </div>
 
-                    @if($menu)
+                    @if($defaultCategory)
                         <div class="space-y-3">
                             <div class="flex items-center justify-between p-4 bg-orange-600 text-white rounded-2xl shadow-md cursor-pointer">
                                 <a href="/restaurants/10/category/{{ $defaultCategory->id }}"><span class="font-bold">{{ $defaultCategory->categoryTitle }}</span></a>
@@ -40,6 +40,9 @@
                 <form action="/addCategory" method="post" class="bg-orange-50 border-2 border-dashed border-orange-200 rounded-[2.5rem] p-6">
                     @csrf
                     <input type="hidden" name="back" value="{{ $restaurant->id }}">
+                    @if ($menu)
+                        <input type="hidden" name="menu" value="{{ $menu->id }}">
+                    @endif
                     <input name="categoryTitle" type="text" placeholder="New category name..." 
                            style="background-color: white !important; color: #111827 !important;"
                            class="w-full border-orange-100 focus:border-orange-500 rounded-xl mb-3" />

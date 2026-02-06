@@ -64,15 +64,13 @@ class RestaurentController extends Controller
     public function showRestaurantMenu ($id)
     {
         $restaurant = Restaurent::with(['menu.category.dishes'])->where('owner_id', auth()->id())->findOrFail($id);
+        $menu = $restaurant->menu;
 
         try{
-            $menu = $restaurant->menu;
             $defaultCategory = $menu->category->first();
-
             $menu->setRelation('category', $menu->category->slice(1));
 
         }catch(Exception $er){
-            $menu = null;
             $defaultCategory = null;
         }
         

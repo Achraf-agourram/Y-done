@@ -10,10 +10,6 @@
                 </nav>
                 <h1 class="text-4xl font-black text-amber-950 tracking-tight">Design Your Menu 📝</h1>
             </div>
-            
-            <button class="bg-orange-600 hover:bg-orange-700 text-white font-black py-3 px-8 rounded-2xl shadow-lg transition-all transform hover:scale-[1.02]">
-                Preview Live Menu
-            </button>
         </div>
 
         <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">

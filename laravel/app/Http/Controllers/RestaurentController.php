@@ -62,6 +62,8 @@ class RestaurentController extends Controller
 
     public function showRestaurantMenu ($id)
     {
-        return view('menu');
+        $restaurant = Restaurent::with(['menu.category.dishes'])->findOrFail($id);
+
+        return view('menu', compact('restaurant'));
     }
 }

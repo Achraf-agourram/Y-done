@@ -6,7 +6,7 @@
                 <nav class="flex text-sm text-orange-600 font-bold mb-2 uppercase tracking-widest">
                     <a href="/my-restaurants" class="hover:underline">My Kitchens</a>
                     <span class="mx-2">/</span>
-                    <span class="text-amber-900">The Golden Whisk</span>
+                    <span class="text-amber-900">{{ $restaurant->restaurentName }}</span>
                 </nav>
                 <h1 class="text-4xl font-black text-amber-950 tracking-tight">Design Your Menu 📝</h1>
             </div>
@@ -23,17 +23,15 @@
 
                     <div class="space-y-3">
                         <div class="flex items-center justify-between p-4 bg-orange-600 text-white rounded-2xl shadow-md cursor-pointer">
-                            <span class="font-bold">🔥 Signature Steaks</span>
+                            <a href="/restaurants/10/category/{{ $defaultCategory->id }}"><span class="font-bold">{{ $defaultCategory->categoryTitle }}</span></a>
                             <span class="text-xs">Edit</span>
                         </div>
-                        <div class="flex items-center justify-between p-4 bg-white hover:bg-orange-50 text-amber-900 border border-orange-100 rounded-2xl transition-colors cursor-pointer group">
-                            <span class="font-bold">🥗 Fresh Salads</span>
-                            <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Edit</span>
-                        </div>
-                        <div class="flex items-center justify-between p-4 bg-white hover:bg-orange-50 text-amber-900 border border-orange-100 rounded-2xl transition-colors cursor-pointer group">
-                            <span class="font-bold">🍹 Cool Drinks</span>
-                            <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Edit</span>
-                        </div>
+                        @foreach ($menu->category as $c)
+                            <div class="flex items-center justify-between p-4 bg-white hover:bg-orange-50 text-amber-900 border border-orange-100 rounded-2xl transition-colors cursor-pointer group">
+                                <a href="/restaurants/10/category/{{ $c->id }}"><span class="font-bold">{{ $c->categoryTitle }}</span></a>
+                                <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Edit</span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -66,13 +64,6 @@
                                        style="background-color: white !important; color: #111827 !important;"
                                        class="w-full mt-1 border-orange-100 focus:border-orange-500 rounded-2xl py-3 shadow-sm" />
                             </div>
-                        </div>
-
-                        <div>
-                            <x-input-label value="Description" class="font-bold text-amber-900" />
-                            <textarea placeholder="Tell your customers about the ingredients and flavors..." rows="3"
-                                      style="background-color: white !important; color: #111827 !important;"
-                                      class="w-full mt-1 border-orange-100 focus:border-orange-500 rounded-2xl shadow-sm"></textarea>
                         </div>
 
                         <div class="flex items-center gap-6 p-4 bg-orange-50 rounded-2xl border border-orange-100">

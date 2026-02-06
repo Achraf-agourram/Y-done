@@ -26,7 +26,7 @@
                         
                         <div class="flex-1 text-center md:text-left">
                             <div class="flex flex-col md:flex-row md:items-center md:gap-3">
-                                <h3 class="text-2xl font-black text-amber-950">{{ $restaurant->restaurentTitle }}</h3>
+                                <h3 class="text-2xl font-black text-amber-950">{{ $restaurant->restaurentName }}</h3>
                                 <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase self-center md:self-auto mt-2 md:mt-0">Open</span>
                             </div>
                             <p class="text-gray-500 text-sm mt-1">{{ $restaurant->location }}</p>

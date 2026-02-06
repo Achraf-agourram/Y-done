@@ -12,6 +12,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-restaurants/new', [RestaurentController::class, 'newRestaurant']);
     Route::post('/my-restaurants/new', [RestaurentController::class, 'addRestaurant']);
     Route::get('/restaurants/{id}', [MenuController::class, 'showDefaultMenu']);
+    Route::get('/restaurants/{id}/category/{category}', [MenuController::class, 'showMenuWithCategory']);
     Route::post('/addCategory', [CategoryController::class, 'addCategory']);
     Route::get('/profile', [ProfileController::class, 'edit']);
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

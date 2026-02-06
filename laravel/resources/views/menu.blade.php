@@ -21,17 +21,17 @@
                         <button class="text-orange-600 font-bold text-sm hover:underline">+ Add New</button>
                     </div>
 
-                    @if($defaultCategory)
+                    @if($selectedCategory)
                         <div class="space-y-3">
-                            <div class="flex items-center justify-between p-4 bg-orange-600 text-white rounded-2xl shadow-md cursor-pointer">
-                                <a href="/restaurants/10/category/{{ $defaultCategory->id }}"><span class="font-bold">{{ $defaultCategory->categoryTitle }}</span></a>
+                            <a href="/restaurants/{{ $restaurant->id }}/category/{{ $selectedCategory->id }}" class="flex items-center justify-between p-4 bg-orange-600 text-white rounded-2xl shadow-md cursor-pointer">
+                                <span class="font-bold">{{ $selectedCategory->categoryTitle }}</span>
                                 <span class="text-xs">Edit</span>
-                            </div>
+                            </a>
                             @foreach ($menu->category as $c)
-                                <div class="flex items-center justify-between p-4 bg-white hover:bg-orange-50 text-amber-900 border border-orange-100 rounded-2xl transition-colors cursor-pointer group">
-                                    <a href="/restaurants/10/category/{{ $c->id }}"><span class="font-bold">{{ $c->categoryTitle }}</span></a>
+                                <a href="/restaurants/{{ $restaurant->id }}/category/{{ $selectedCategory->id }}" class="flex items-center justify-between p-4 bg-white hover:bg-orange-50 text-amber-900 border border-orange-100 rounded-2xl transition-colors cursor-pointer group">
+                                    <span class="font-bold">{{ $c->categoryTitle }}</span>
                                     <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Edit</span>
-                                </div>
+                                </a>
                             @endforeach
                         </div>
                     @endif
@@ -92,8 +92,8 @@
                 <div class="space-y-4">
                     <h4 class="text-lg font-black text-amber-950 ml-2">Currently in this Category</h4>
                     
-                    @if($defaultCategory)
-                        @foreach ($defaultCategory->dishes as $dish)
+                    @if($selectedCategory)
+                        @foreach ($selectedCategory->dishes as $dish)
                             <div class="bg-white border border-orange-50 rounded-3xl p-4 flex items-center justify-between shadow-sm">
                                 <div class="flex items-center gap-4">
                                     <div class="w-16 h-16 rounded-2xl bg-gray-200 overflow-hidden">

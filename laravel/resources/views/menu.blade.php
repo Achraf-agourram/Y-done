@@ -57,17 +57,18 @@
                         <span class="mr-3">🍲</span> Add a New Dish
                     </h3>
                     
-                    <form action="#" class="space-y-6">
+                    <form action="/addDish" method="post" class="space-y-6">
+                        @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <x-input-label value="Dish Name" class="font-bold text-amber-900" />
-                                <input type="text" placeholder="e.g. Wagyu Truffle Burger" 
+                                <input name="DishTitle" type="text" placeholder="e.g. Wagyu Truffle Burger" 
                                        style="background-color: white !important; color: #111827 !important;"
                                        class="w-full mt-1 border-orange-100 focus:border-orange-500 rounded-2xl py-3 shadow-sm" />
                             </div>
                             <div>
                                 <x-input-label value="Price ($)" class="font-bold text-amber-900" />
-                                <input type="number" step="0.01" placeholder="19.99" 
+                                <input name="price" type="number" step="0.01" placeholder="19.99" 
                                        style="background-color: white !important; color: #111827 !important;"
                                        class="w-full mt-1 border-orange-100 focus:border-orange-500 rounded-2xl py-3 shadow-sm" />
                             </div>
@@ -79,7 +80,7 @@
                             </div>
                             <div class="flex-1">
                                 <p class="text-sm font-bold text-amber-900">Dish Photo</p>
-                                <input type="file" class="text-xs text-gray-500 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:bg-orange-600 file:text-white" />
+                                <input name="dishPhoto" type="file" class="text-xs text-gray-500 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:bg-orange-600 file:text-white" />
                             </div>
                         </div>
 

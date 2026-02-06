@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DishController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RestaurentController;
@@ -14,6 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/restaurants/{id}', [MenuController::class, 'showDefaultMenu']);
     Route::get('/restaurants/{id}/category/{category}', [MenuController::class, 'showMenuWithCategory']);
     Route::post('/addCategory', [CategoryController::class, 'addCategory']);
+    Route::post('/addDish', [DishController::class, 'addDish']);
     Route::get('/profile', [ProfileController::class, 'edit']);
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });

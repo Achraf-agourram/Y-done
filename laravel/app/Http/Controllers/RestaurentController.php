@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Models\Restaurent;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,10 +64,18 @@ class RestaurentController extends Controller
     public function showRestaurantMenu ($id)
     {
         $restaurant = Restaurent::with(['menu.category.dishes'])->findOrFail($id);
-        $menu = $restaurant->menu;
-        $defaultCategory = $menu->category->first();
 
-        $menu->setRelation('category', $menu->category->slice(1));
+        try{
+            $menu = $restaurant->menu;
+            $defaultCategory = $menu->category->first();
+
+            $menu->setRelation('category', $menu->category->slice(1));
+
+        }catch(Exception $er){
+            $menu = null;
+            $defaultCategory = null;
+        }
+        
         
 
         return view('menu', compact('restaurant', 'menu', 'defaultCategory'));

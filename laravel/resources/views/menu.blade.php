@@ -21,18 +21,20 @@
                         <button class="text-orange-600 font-bold text-sm hover:underline">+ Add New</button>
                     </div>
 
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between p-4 bg-orange-600 text-white rounded-2xl shadow-md cursor-pointer">
-                            <a href="/restaurants/10/category/{{ $defaultCategory->id }}"><span class="font-bold">{{ $defaultCategory->categoryTitle }}</span></a>
-                            <span class="text-xs">Edit</span>
-                        </div>
-                        @foreach ($menu->category as $c)
-                            <div class="flex items-center justify-between p-4 bg-white hover:bg-orange-50 text-amber-900 border border-orange-100 rounded-2xl transition-colors cursor-pointer group">
-                                <a href="/restaurants/10/category/{{ $c->id }}"><span class="font-bold">{{ $c->categoryTitle }}</span></a>
-                                <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Edit</span>
+                    @if($menu)
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-4 bg-orange-600 text-white rounded-2xl shadow-md cursor-pointer">
+                                <a href="/restaurants/10/category/{{ $defaultCategory->id }}"><span class="font-bold">{{ $defaultCategory->categoryTitle }}</span></a>
+                                <span class="text-xs">Edit</span>
                             </div>
-                        @endforeach
-                    </div>
+                            @foreach ($menu->category as $c)
+                                <div class="flex items-center justify-between p-4 bg-white hover:bg-orange-50 text-amber-900 border border-orange-100 rounded-2xl transition-colors cursor-pointer group">
+                                    <a href="/restaurants/10/category/{{ $c->id }}"><span class="font-bold">{{ $c->categoryTitle }}</span></a>
+                                    <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Edit</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
 
                 <div class="bg-orange-50 border-2 border-dashed border-orange-200 rounded-[2.5rem] p-6">
@@ -85,21 +87,25 @@
                 <div class="space-y-4">
                     <h4 class="text-lg font-black text-amber-950 ml-2">Currently in this Category</h4>
                     
-                    <div class="bg-white border border-orange-50 rounded-3xl p-4 flex items-center justify-between shadow-sm">
-                        <div class="flex items-center gap-4">
-                            <div class="w-16 h-16 rounded-2xl bg-gray-200 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover">
+                    @if($defaultCategory)
+                        @foreach ($defaultCategory->dishes as $dish)
+                            <div class="bg-white border border-orange-50 rounded-3xl p-4 flex items-center justify-between shadow-sm">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-16 h-16 rounded-2xl bg-gray-200 overflow-hidden">
+                                        <img src="{{ asset('storage/' . $dish->dishPhoto) }}" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-amber-950">{{ $dish->dishTitle }}</h5>
+                                        <p class="text-orange-600 font-black text-sm">{{ $dish->price }}</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button class="p-2 text-amber-900 hover:bg-orange-50 rounded-lg">✏️</button>
+                                    <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg">🗑️</button>
+                                </div>
                             </div>
-                            <div>
-                                <h5 class="font-bold text-amber-950">Quinoa Power Bowl</h5>
-                                <p class="text-orange-600 font-black text-sm">$14.50</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="p-2 text-amber-900 hover:bg-orange-50 rounded-lg">✏️</button>
-                            <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg">🗑️</button>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
 
             </div>

@@ -37,12 +37,14 @@
                     @endif
                 </div>
 
-                <div class="bg-orange-50 border-2 border-dashed border-orange-200 rounded-[2.5rem] p-6">
-                    <input type="text" placeholder="New category name..." 
+                <form action="/addCategory" method="post" class="bg-orange-50 border-2 border-dashed border-orange-200 rounded-[2.5rem] p-6">
+                    @csrf
+                    <input type="hidden" name="back" value="{{ $restaurant->id }}">
+                    <input name="categoryTitle" type="text" placeholder="New category name..." 
                            style="background-color: white !important; color: #111827 !important;"
                            class="w-full border-orange-100 focus:border-orange-500 rounded-xl mb-3" />
                     <button class="w-full bg-amber-900 text-white font-bold py-2 rounded-xl text-sm">Create Category</button>
-                </div>
+                </form>
             </div>
 
             <div class="lg:col-span-8 space-y-6">
@@ -79,7 +81,7 @@
                         </div>
 
                         <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-black py-4 rounded-2xl shadow-lg transition-all">
-                            Add to "Signature Steaks" ➕
+                            Add
                         </button>
                     </form>
                 </div>

@@ -59,4 +59,9 @@ class RestaurentController extends Controller
 
         return redirect('/my-restaurants')->with('success', 'Your Restaurant was added succesfully !');
     }
+
+    public function showRestaurantMenu ($id)
+    {
+        return view('menu');
+    }
 }

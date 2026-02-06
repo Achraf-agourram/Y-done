@@ -9,6 +9,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-restaurants', [RestaurentController::class, 'myRestaurants']);
     Route::get('/my-restaurants/new', [RestaurentController::class, 'newRestaurant']);
     Route::post('/my-restaurants/new', [RestaurentController::class, 'addRestaurant']);
+    Route::get('/restaurants/{id}', [RestaurentController::class, 'showRestaurantMenu']);
     Route::get('/profile', [ProfileController::class, 'edit']);
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });

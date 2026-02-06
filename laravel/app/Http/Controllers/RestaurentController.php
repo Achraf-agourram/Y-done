@@ -16,7 +16,13 @@ class RestaurentController extends Controller
 
     public function myRestaurants ()
     {
-        return view('myrestaurants');
+        $restaurants = auth()->user()
+                        ->restaurants()
+                        ->where('isActive', true)
+                        ->with('photos')
+                        ->get();
+
+        return view('myrestaurants', compact('restaurants'));
     }
 
     public function newRestaurant ()
@@ -38,7 +44,7 @@ class RestaurentController extends Controller
         
         $restaurant->isActive = true;
         $restaurant->owner_id = Auth::id();
-        
+
         $restaurant->save();
 
         if ($request->hasFile('photos')) {
